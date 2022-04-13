@@ -3,13 +3,15 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" content="black">
+        <link rel="stylesheet" href="style.css">
         <title>Document</title>
     </head>
     <body>
         <audio id="audio">
             <source src="./assets/audio.mp3" type="audio/mpeg">
         </audio>
-        <button id="button1" onclick="changeButton()">Tocar</button>
+        <button class="off" id="button1" onclick="changeButton()">Tocar</button>
     </body>
     <script>
         var yes = 1
@@ -21,11 +23,13 @@
                 button.innerText = "Parar"
                 yes = 0
                 audio.play()
+                button.setAttribute('class', 'on')
             } else {
                 button.innerText = "Tocar"
                 yes = 1
                 audio.pause()
                 audio.currentTime = 0;
+                button.setAttribute('class', 'off')
             }
         }
 
